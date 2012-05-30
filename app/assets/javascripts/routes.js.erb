@@ -1,0 +1,21 @@
+<% @application_name = Rails.application.engine_name.camelize.gsub(/Application$/, '') %>
+<% @named_routes = Rails.application.routes.named_routes.to_a %>
+
+var <%= @application_name %> = <%= @application_name %> || {};
+
+<%= @application_name %>.Routes = {
+ <% @named_routes.each do |name, route| %>
+  <%# name, route = path %>
+  <%= name.to_s.camelize %>Path: function(parameters){
+    <% parts = route.parts %>
+    <% hash = parts.inject({}) {|h, p| h[p] = ":#{p}"; h } %>
+    parameters = parameters || {};
+    var path = "<%= route.path.spec.to_s.gsub(/\(\.:format\)$/, ':format') %>";
+    <% parts.each do |part| %>
+    path = path.replace('<%= ":#{part}" %>', parameters.<%= part %> || '');
+    <% end %>
+    return path;
+  },
+  <% end %>
+  c42Path: function(){ return "http://c42.in"; }
+};
