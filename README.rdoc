@@ -1,7 +1,22 @@
 = RoutesJs 0.0.3
 
-To get started:
+Makes Rails route helpers available to javascript
 
-RoutesJs::Config.namespace = "ApplicationNamespace"
+== To get started:
+
+Add 'routes-js' to your Gemfile
+
+Add 
+  //= require routes-js
+to your application.js
+
+
+== To configure a custom namespace (default is your Rails application name):
+
+  RoutesJs::Config.namespace = "ApplicationNamespace"
+  
+== Testing if it's all good
+
+Launch your Rails application, then hit the url http://localhost:3000/assets/routes.js (assuming your Rails server is running on port 3000)
 
 This project rocks and uses MIT-LICENSE.
