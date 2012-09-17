@@ -1,7 +1,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "routes-js/version"
+require "routes_js/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|

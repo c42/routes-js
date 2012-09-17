@@ -1,3 +1,7 @@
-= RoutesJs
+= RoutesJs 0.0.3
+
+To get started:
+
+RoutesJs::Config.namespace = "ApplicationNamespace"
 
 This project rocks and uses MIT-LICENSE.

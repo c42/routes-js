@@ -1,4 +1,1 @@
-require "routes-js/engine"
-
-module RoutesJs
-end
+require "routes_js"
