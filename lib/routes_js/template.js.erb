@@ -1,0 +1,21 @@
+(function(){
+  var <%= RoutesJs.config.namespace %> = <%= RoutesJs.config.namespace %> || {};
+
+  <%= RoutesJs.config.namespace %>.Routes = {
+   <% RoutesJs::Routes.new.whitelisted.each do |name, route| %>
+   <% route_name = name.to_s.camelize  %>
+   <% route_name[0] = route_name[0].chr.downcase %>
+    <%= route_name %>Path: function(parameters){
+      <% parts = route.parts %>
+      <% hash = parts.inject({}) {|h, p| h[p] = ":#{p}"; h } %>
+      parameters = parameters || {};
+      var path = "<%= route.path.spec.to_s.gsub(/\(\.:format\)$/, ':format') %>";
+      <% parts.each do |part| %>
+      path = path.replace('<%= ":#{part}" %>', parameters.<%= part %> || '');
+      <% end %>
+      return path;
+    },
+    <% end %>
+    c42Path: function(){ return "http://c42.in"; }
+  };
+})();

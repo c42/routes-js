@@ -1,1 +1,0 @@
-RoutesJs::Config.namespace ||= Rails.application.engine_name.camelize.gsub(/Application$/, '')
