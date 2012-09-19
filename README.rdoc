@@ -7,7 +7,7 @@ Makes Rails route helpers available to javascript
 Add 'routes-js' to your Gemfile
 
 Add 
-  //= require routes-js
+  //= require routes
 to your application.js
 
 
